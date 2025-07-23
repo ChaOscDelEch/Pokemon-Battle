@@ -1,8 +1,10 @@
 import { Client } from 'pg';
 import dotenv from 'dotenv';
+
+// Load environment variables from .env file
 dotenv.config();
 
-export default function Home() {
+// Optional: You can add an interface/type for config if you want more safety
 
 const client = new Client({
   connectionString: process.env.DATABASE_URL,
@@ -19,21 +21,5 @@ client.query('SELECT NOW()')
   .catch(err => {
     console.error('Test query failed:', err);
   });
-  return (
-    <div>
-      <h2 className="text-5xl font-bold mb-4 text-red-600">
-        It's Pokémon Time!
-      </h2>
-    </div>
-  );
-}
 
-
-
-// Load environment variables from .env file
-
-
-// Optional: You can add an interface/type for config if you want more safety
-
-
-
+export default client;
