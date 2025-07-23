@@ -1,0 +1,1 @@
+import { getPokemonList } from '../lib/pokeapi';

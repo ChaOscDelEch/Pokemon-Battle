@@ -1,39 +1,24 @@
-import { Client } from 'pg';
-import dotenv from 'dotenv';
-dotenv.config();
+'use client';
+import { getPokemonList } from '@/lib/pokeapi';
+import { useEffect } from 'react';
 
 export default function Home() {
+  useEffect(() => {
+    async function fetchData() {
+      const data = await getPokemonList(10);
+      console.log(data);
+    }
 
-const client = new Client({
-  connectionString: process.env.DATABASE_URL,
-});
+    fetchData();
+  }, []);
 
-client.connect()
-  .then(() => console.log('Connected to the database!'))
-  .catch((err) => console.error('Database connection error:', err));
 
-client.query('SELECT NOW()')
-  .then(res => {
-    console.log('Test query result:', res.rows[0]);
-  })
-  .catch(err => {
-    console.error('Test query failed:', err);
-  });
+  
   return (
     <div>
-      <h2 className="text-5xl font-bold mb-4 text-red-600">
-        It's Pokémon Time!
+      <h2 className='text-5xl font-bold mb-4 text-red-600'>
+        Its Pokémon Time!
       </h2>
     </div>
   );
 }
-
-
-
-// Load environment variables from .env file
-
-
-// Optional: You can add an interface/type for config if you want more safety
-
-
-
