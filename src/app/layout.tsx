@@ -5,6 +5,8 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ErrorBoundary from "../components/ErrorBoundary";
+import Image from "next/image";
+import TestRoster from "@/components/TestRoster";
 
 export default function RootLayout({
   children,
@@ -26,7 +28,6 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <head />
       <body className="bg-yellow-300 min-h-screen flex flex-col">
         <ErrorBoundary>
           {/* Header */}
@@ -157,6 +158,9 @@ export default function RootLayout({
           {/* Wrap children with ErrorBoundary */}
           <main className="flex-1 mx-30 text-center p-4">{children}</main>
         </ErrorBoundary>
+
+        {/* Test Controls (only in development) */}
+        {process.env.NODE_ENV === "development" && <TestRoster />}
       </body>
     </html>
   );
