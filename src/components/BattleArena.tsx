@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
 import type { BattleState, BattlePokemon } from "@/types";
 import {
   processBattleRound,
@@ -469,9 +470,11 @@ function PokemonBattleCard({
       } ${isAnimating ? "animate-pulse" : ""}`}
     >
       <div className="relative">
-        <img
+        <Image
           src={pokemon.image}
           alt={pokemon.name}
+          width={80}
+          height={80}
           className={`w-32 h-32 mx-auto ${isAnimating ? "animate-bounce" : ""}`}
         />
         {isAnimating && (
@@ -560,9 +563,11 @@ function PokemonSelectionCard({
             CURRENT
           </div>
         )}
-        <img
+        <Image
           src={pokemon.image}
           alt={pokemon.name}
+          width={80}
+          height={80}
           className="w-24 h-24 mx-auto mb-4"
         />
         <h3 className="text-xl font-semibold capitalize text-gray-800 mb-2">
@@ -636,9 +641,11 @@ function TeamOverview({
                 : "border-gray-300 bg-gray-50 opacity-50"
             }`}
           >
-            <img
+            <Image
               src={pokemon.image}
               alt={pokemon.name}
+              width={80}
+              height={80}
               className="w-12 h-12 mx-auto mb-1"
             />
             <div className="text-xs font-medium capitalize">{pokemon.name}</div>
@@ -698,9 +705,11 @@ function TeamStatus({
             }`}
             title={`${pokemon.name}: ${pokemon.currentHp}/${pokemon.maxHp} HP`}
           >
-            <img
+            <Image
               src={pokemon.image}
               alt={pokemon.name}
+              width={80}
+              height={80}
               className="w-12 h-12 object-contain mb-1"
             />
 

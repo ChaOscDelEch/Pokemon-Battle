@@ -6,7 +6,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ErrorBoundary from "../components/ErrorBoundary";
 import Image from "next/image";
-import TestRoster from "@/components/TestRoster";
 
 export default function RootLayout({
   children,
@@ -31,11 +30,11 @@ export default function RootLayout({
       <body className="bg-yellow-300 min-h-screen flex flex-col">
         <ErrorBoundary>
           {/* Header */}
-          <header className="flex items-center justify-between p-4 mx-30 bg-yellow-300 relative">
+          <header className="flex items-center justify-between p-4 mx-auto bg-yellow-300 relative">
             {/* Logo & Title */}
             <div className="flex items-center space-x-2">
               <img
-                src="logo_pokemon.png"
+                src="/logo_pokemon.png"
                 alt="Logo"
                 className="h-20 w-20 object-contain"
               />
@@ -45,7 +44,7 @@ export default function RootLayout({
             </div>
 
             {/* Desktop Nav */}
-            <nav className="hidden xl:flex space-x-6 font-semibold">
+            <nav className="hidden xl:flex space-x-6 font-semibold min-w-5xl mx-auto justify-end">
               {/* Your links */}
               <Link href="/" className={getLinkClass("/")}>
                 Home
@@ -156,11 +155,8 @@ export default function RootLayout({
           </header>
 
           {/* Wrap children with ErrorBoundary */}
-          <main className="flex-1 mx-30 text-center p-4">{children}</main>
+          <main className="flex-1 text-center p-4">{children}</main>
         </ErrorBoundary>
-
-        {/* Test Controls (only in development) */}
-        {process.env.NODE_ENV === "development" && <TestRoster />}
       </body>
     </html>
   );

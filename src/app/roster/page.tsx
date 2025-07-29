@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import {
   getRoster,
@@ -81,7 +82,7 @@ export default function RosterPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 py-8">
+    <div className="min-h-screen py-8">
       <div className="max-w-6xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-8">
@@ -119,9 +120,11 @@ export default function RosterPage() {
                 >
                   {/* Pokemon Image */}
                   <div className="text-center mb-4">
-                    <img
+                    <Image
                       src={pokemon.sprites.front_default}
                       alt={pokemon.name}
+                      width={80}
+                      height={80}
                       className="w-24 h-24 mx-auto"
                     />
                   </div>

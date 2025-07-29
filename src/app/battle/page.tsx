@@ -199,7 +199,7 @@ export default function BattlePage() {
   // Team ready phase
   if (phase === "team-ready") {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 py-8">
+      <div className="min-h-screen py-8">
         <div className="max-w-4xl mx-auto px-4">
           <div className="text-center mb-8">
             <h1 className="text-4xl font-bold text-gray-800 mb-2">
@@ -210,7 +210,7 @@ export default function BattlePage() {
             </p>
           </div>
 
-          <div className="bg-blue-50 rounded-xl p-6 mb-8">
+          <div className="rounded-xl p-6 mb-8">
             <h2 className="text-2xl font-semibold text-blue-800 mb-4 text-center">
               Your Battle Team
             </h2>
@@ -288,7 +288,7 @@ export default function BattlePage() {
   // Battle phase
   if (phase === "battle" && battleState) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 py-8">
+      <div className="min-h-screen py-8">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-6">
             <h1 className="text-4xl font-bold text-gray-800 mb-2">
